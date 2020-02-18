@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- mostrando uma mensagem  -->
+        <p>{{msg}}</p> 
+        <!-- usando o if ternario -->
+        <p>{{ ehVerdade ? 'Verdade' : 'False' }}</p>
+        <!-- apresentando arry -->
+        <p>{{ frutas[0] + ' e ' + frutas[1] }}</p> 
+        <!-- apresentado chave valor dentro de chave valor  -->
+        <p>Aluno: {{ aluno.nome }}</p> 
+        <!-- utilizando numeros  -->
+        <p>{{ 1 + num1 }}</p> 
+        <!-- chamando uma funcao    -->
+        <p>{{ fun() }}</p>
+
+        <p>{{ funt() }}</p>
+        <P>{{ metodo() }}</P>
+        <P>{{ metodo2(0) }}</P>
+
+
+    </div>
+    
+    <!-- biblioteca do vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //abrindo uma nova instancia 
+        new Vue({
+
+            // falando que meu app e o principal 
+            el: '#app',
+            //trabalhndo com os dados 
+            data: {
+
+                    //string
+                    msg: 'Ola Mundo',
+                    //boolean
+                    ehVerdade: false,
+                    //arry
+                    frutas: ['Pera', 'Banana', 'Maca'],
+                    //object
+                    aluno: { nome: 'Tadeu'},
+                    //nubers
+                    num1: 1,
+                    //usando uma função
+                    fun: function() {
+                        return 'Mensagem da funcao'
+                    },
+                    //usando uma arofunction 
+                    funt: () => {
+                        return 'Mensagem outra função'
+                    }
+                   
+            },
+            //o methods e para utilizar as funções 
+            methods: {
+                 //criando um metodo para retorna uma função 
+                 metodo() {
+                        return 'Fruta: ' + this.frutas[1]
+                    },
+                    metodo2(indice) {
+                        return 'Fruta: ' + this.frutas[indice]
+                    }
+            },
+        })
+        
+    </script>
+
+</body>
+</html>
