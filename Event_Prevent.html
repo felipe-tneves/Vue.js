@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- para pegar um evento $event -->
+        <!-- <form v-on:submit="alterarNome('Tadeu', $event)"> -->
+            <form v-on:submit.prevent="alterarNome('Tadeu')">
+            <input type="text" v-model="textDigitado">
+           <br>
+           <button type="submit">
+               Add
+           </button>
+
+        </form>
+       
+    </div>
+    
+    <!-- biblioteca do vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        new Vue({            
+            el: '#app',           
+            data: {
+                textDigitado:''                     
+         },
+         methods: {
+             alterarNome(sobrenome, event) {
+                 //faz uma prevenção do comportamento padrão 
+                 //event.preventDefault();
+                 this.textDigitado = sobrenome;
+                 console.log(event);
+             }
+         }
+        })
+        
+    </script>
+
+</body>
+</html>

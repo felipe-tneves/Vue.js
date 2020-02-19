@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <!-- two way data binding junto com model permite nos permite alterar o valor das variaveis que esta dentro js  -->
+        <input type="text" v-model="textDigitado">
+       <br>
+       <!-- <button @:click="alterarNome()"></button> -->
+       <button v-on:click="alterarNome()">
+           Altera Nome - Chama
+       </button>
+       <br>
+       <br>
+       <label v-text="textDigitado"></label>
+
+    </div>
+    
+    <!-- biblioteca do vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        
+        new Vue({            
+            el: '#app',           
+            data: {
+                textDigitado:''                     
+         },
+         methods: {
+             alterarNome() {
+                 this.textDigitado = "Tadeu";
+             }
+         }
+        })
+        
+    </script>
+
+</body>
+</html>
